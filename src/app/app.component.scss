@@ -1,0 +1,27 @@
+.custom-btn{
+    margin-left: 70px ;
+    margin-top: 30px;
+}
+
+  /* Width of the scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px; /* For vertical scrollbar */
+    height: 12px; /* For horizontal scrollbar */
+  }
+  
+  /* Track (background) of the scrollbar */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  /* Handle (scroll thumb) of the scrollbar */
+  ::-webkit-scrollbar-thumb {
+    background: #adb7db;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

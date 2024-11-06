@@ -1,0 +1,80 @@
+<div class="custom-header">
+    <h3 class="text-bold fw-bold">Let's start with your header</h3>
+    <p>Include your full name and at least one way for employers to reach you.</p>
+
+    <form>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <mat-form-field class="w-100"  >
+                    <mat-label>First Name</mat-label>
+                    <input matInput #input [(ngModel)]="resumeHeaderData.firstName" (ngModelChange)="updateResumeData()"  placeholder="FirstName" [ngModelOptions]="{standalone: true}"  />
+                </mat-form-field >
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100" >
+                    <mat-label>Surname</mat-label>
+                    <input matInput #input  [(ngModel)]="resumeHeaderData.surname" (ngModelChange)="updateResumeData()"  placeholder="Surname" [ngModelOptions]="{standalone: true}" />
+                </mat-form-field >
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+            <mat-form-field class="w-100" >
+                <mat-label>City</mat-label>
+                <input matInput #input  [(ngModel)]="resumeHeaderData.city" (ngModelChange)="updateResumeData()"  placeholder="Enter city" [ngModelOptions]="{standalone: true}" />
+            </mat-form-field >
+            </div>
+            <div class="col-md-6">
+            <mat-form-field class="w-100" >
+                <mat-label>Country</mat-label>
+                <input matInput #input  [(ngModel)]="resumeHeaderData.country" (ngModelChange)="updateResumeData()"    placeholder="Enter Country" [ngModelOptions]="{standalone: true}"  />
+            </mat-form-field >
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+            <mat-form-field class="w-100" >
+                <mat-label>Pin Code</mat-label>
+                <input matInput #input   [(ngModel)]="resumeHeaderData.pinCode" (ngModelChange)="updateResumeData()"   placeholder="Enter pin code" [ngModelOptions]="{standalone: true}"  />
+            </mat-form-field >
+            </div>
+            <div class="col-md-6">
+            <mat-form-field class="w-100" >
+                <mat-label>Phone</mat-label>
+                <input matInput #input    [(ngModel)]="resumeHeaderData.phone" (ngModelChange)="updateResumeData()"   placeholder="Enter phone number" [ngModelOptions]="{standalone: true}" />
+            </mat-form-field >
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <mat-form-field class="w-100" >
+            <mat-label>Email</mat-label>
+            <input matInput #input     [(ngModel)]="resumeHeaderData.email" (ngModelChange)="updateResumeData()"  placeholder="Enter email" [ngModelOptions]="{standalone: true}"  />
+            </mat-form-field >
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div>
+                    <button class="btn  btn-lg rounded-pill custom-hover-1 px-5 text-bold fs-6 fw-bold"
+                      (click)="onBack()"
+                    >Back</button>
+                  </div>
+            </div>
+            <div class="col-md-6 text-end">
+                <div>
+                    <button class="btn  btn-lg rounded-pill custom-hover-2 px-5 text-bold fs-6 fw-bold"
+                    (click)="onContinue()"
+                    >Continue</button>
+                  </div>
+            </div>
+
+            
+              
+
+
+        </div>
+    </form>
+</div>

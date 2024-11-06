@@ -1,0 +1,118 @@
+<div class="custom-header position-relative ">
+    <h3 class="text-bold fw-bold">Let’s work on your experience</h3>
+    <div class="custom-scroll" (scroll)="onScroll($event)"   >
+        <form [formGroup]="resumeReactiveForm" (ngSubmit)="onContinue()" >
+
+            <div formArrayName="experience" >
+                @for(experience of experienceArray.controls;track experience;let i=$index){
+    
+                    <div [id]="i"  [formGroupName]="i" class="mt-4 bg-light p-3">
+                        <div class="row mb-3 ">
+                            <div class="col-md-6">
+                                <p>{{i +1}}. Experience</p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button class="btn rounded border border-black custom-hover-1" type="button" (click)="onDeleteExperience(i)" ><i class="bi bi-trash-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <mat-form-field class="w-100"  >
+                                    <mat-label>Job Title</mat-label>
+                                    <input matInput #input formControlName="jobTitle"  placeholder="Job Title" />
+                                </mat-form-field >
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="w-100" >
+                                    <mat-label>Employer</mat-label>
+                                    <input matInput #input formControlName="employer"  placeholder="Employer"  />
+                                </mat-form-field >
+                            </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <mat-form-field class="w-100" >
+                                <mat-label>City</mat-label>
+                                <input matInput #input  formControlName="city" placeholder="Enter city"  />
+                            </mat-form-field >
+                            </div>
+                            <div class="col-md-6">
+                            <mat-form-field class="w-100" >
+                                <mat-label>Country</mat-label>
+                                <input matInput #input  formControlName="country"    placeholder="Country"  />
+                            </mat-form-field >
+                            </div>
+                        </div>
+    
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <mat-form-field  class="w-100" >
+                                    <mat-label>Start Date</mat-label>
+                                    <input matInput [matDatepicker]="picker" readonly="true"    formControlName="startDate"  placeholder="MM/DD/YYYY" >
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field  class="w-100" >
+                                    <mat-label>End Date</mat-label>
+                                    <input matInput [matDatepicker]="picker2" readonly="true" formControlName="endDate"  placeholder="MM/DD/YYYY" >
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker2></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <p>Add Description About Our Job Experience</p>
+                        </div>
+                        <div class="editor-container bg-light p-2 rounded ">
+                            <ckeditor [editor]="Editor" formControlName="description" [config]="editorConfig"></ckeditor>
+                        </div>
+                    </div>
+                }
+    
+            </div>
+        </form>
+    </div>
+    <div>
+        <a  #downBtn (click)="onScrollDown()" class="scroll-down-btn position-absolute top-60 start-50 translate-middle" ><i class="bi bi-chevron-double-down"></i></a>
+    </div>
+
+    
+    <div class="row mb-3 mt-3 ">
+        <div class="col-md-6">
+            <div>
+                <button class="btn  btn-lg rounded-pill custom-hover-1 px-5 text-bold fs-6 fw-bold"
+                  (click)="onBack()" type="button"
+                >Back</button>
+              </div>
+        </div>
+
+        <div class="col-md-6   ">
+            <div class="d-flex justify-content-lg-end  ">
+                <div class="">
+                    <button class="btn  btn-lg rounded-pill border-0 custom-hover-1 px-5 text-bold fs-6 fw-bold  text-decoration-underline"
+                    (click)="onAddClick()" type="button"
+                    >Add More Experience</button>
+                </div>
+                
+                <div >
+                    <button class="btn  btn-lg rounded-pill custom-hover-2 px-5 text-bold fs-6 fw-bold"
+                    (click)="onContinue()" type="submit"
+                    >Continue</button>
+                  </div>
+            </div>
+            
+        </div>
+    
+    
+
+    
+      
+
+
+</div>
+    
+</div>

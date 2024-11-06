@@ -1,0 +1,229 @@
+
+<!-- Template 1 -->
+<!-- <div class="resume-container p-3 border shadow-sm bg-white border border-1 border-black rounded sticky-top">
+
+    <div class=" mb-2">
+      <h3 class="fw-bold">{{ resumeHeaderData?.firstName || 'Your First Name' }} {{ resumeHeaderData?.surname || 'Last Name' }}</h3>
+      <p>{{ resumeHeaderData?.phone || '1234567890' }} • <a href="mailto:vishal@gmail.com">{{ resumeHeaderData?.email || 'xyz@gmail.com' }}</a> • {{ resumeHeaderData?.city || 'Ahmedabad' }}, {{ resumeHeaderData?.country || 'India' }} {{ resumeHeaderData?.pinCode || '380061' }}
+        @if(resumeAddMoreData?.links?.length>0){
+              @for (linkData of resumeAddMoreData.links; track $index) {
+                @if(linkData.addHeader){
+                  • <a>  {{linkData.link}}</a>
+                }
+              }
+          }
+          @else {
+          }
+        
+      </p>
+    </div>
+  
+    <div class="mb-3">
+      <h5 class="fw-bold">Summary</h5>
+      @if(resumeSummaryData){
+        <p class="bg-light p-2 rounded" [innerHTML]="resumeSummaryData" ></p>
+      }
+      @else {
+        <p class="bg-light p-2 rounded">
+          Customer-focused Retail Sales professional with solid understanding of retail dynamics, marketing, and customer service. Offering 5 years of experience providing quality product recommendations and solutions to meet customer needs and exceed expectations. Demonstrated record of exceeding revenue targets by leveraging communication skills and sales expertise.
+        </p>
+      }
+    </div>
+
+    <div class="mb-3">
+      <h5 class="fw-bold">Skills</h5>
+      @if(resumeSkillsData){
+          <div [innerHTML]="resumeSkillsData" class="ck-editor-list-skills" >
+  
+          </div>
+      }
+      @else {
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li>Cash register operation</li>
+              <li>POS system operation</li>
+              <li>Sales expertise</li>
+              <li>Teamwork</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li>Inventory management</li>
+              <li>Accurate money handling</li>
+              <li>Documentation and recordkeeping</li>
+              <li>Retail merchandising expertise</li>
+            </ul>
+          </div>
+        </div>
+      }
+      
+    </div>
+  
+    <div class="mb-3">
+      <h5 class="fw-bold">Experience</h5>
+      @if(resumeExperienceData?.length>=1){
+        @for(experience of resumeExperienceData;track experience;let i=$index){
+          <div >
+            <p> {{i+1}}. <strong>{{(experience?.startDate | date:'MMM, yyyy') || 'Oct 2021'}} -{{(experience?.endDate | date:'MMM, yyyy')  || 'Oct 2021'}}</strong><br />{{ experience?.jobTitle ||'Software Engineer'}}, <strong>{{ experience?.employer || 'Web Code Genie'}}</strong>, {{ experience?.city || 'Ahmedabad'}}, {{ experience?.country ||'India'}}</p>
+    
+              <div [innerHTML]="experience?.description" class=""  style="font-size: 0.4rem; line-height: 0.6rem;" >
+              </div>
+          </div>
+        }
+      }
+      @else {
+        <div >
+          <p> No. <strong>Oct 2021 -Oct 2021</strong><br />Software Engineer, <strong>Web Code Genie</strong>,Ahmedabad ,India</p>
+          <ul>
+            <li>fasdfsdfsd asfsdlfj</li>
+            <li>adlkfsdfksdj aksdjflksdjfsdjf</li>
+            <li>fkjasdlkfsddd</li></ul>
+        </div>
+      }
+      
+      
+    </div>
+  
+    <div class="mb-3">
+      <h5 class="fw-bold">Education</h5>
+      @if(resumeEducationData){
+        @for(education of resumeEducationData;track education;let i=$index){
+          <div >
+            <p> {{i+1}}. <strong>{{education?.month?.monthName  || 'Oct'}} {{education?.year || '2021'}} </strong>
+              <br /> <strong> {{ education?.degree.degreeName ||'Science'}} </strong>, {{ education?.study || 'Maths'}}</p>
+              <p> 
+                <strong> {{education.schoolName}} </strong> ,{{education.schoolLocation}}
+              </p>
+              <div [innerHTML]="education?.description" class="ck-editor-list">
+              </div>
+          </div>
+
+        }
+      }
+      @else {
+        <div >
+          <p> No. <strong>Oct 2021 </strong>
+            <br /> <strong>Associate of Science </strong>,Maths</p>
+            <p>
+              Nutan,36,Chankyapuri,Ghatlodia,Ahmdabad
+            </p>
+          <ul>
+            <li>fasdfsdfsd asfsdlfj</li>
+            <li>adlkfsdfksdj aksdjflksdjfsdjf</li>
+            <li>fkjasdlkfsddd</li></ul>
+        </div>
+      }
+    </div>
+
+
+    @if(resumeAddMoreData.activities){
+    <div class="mb-3">
+      <h5 class="fw-bold">Activities And Honors</h5>
+        <div class="ck-editor-list mt-1" [innerHTML]="resumeAddMoreData.activities" >
+        </div>
+      </div>
+    }
+    @else {
+      <div >
+        
+      </div>
+    }
+
+    @if(resumeAddMoreData?.awards){
+      <div class="mb-3">
+        <h5 class="fw-bold">Awards And Accomplishments</h5>
+          <div class="ck-editor-list mt-1" [innerHTML]="resumeAddMoreData.awards" >
+          </div>
+        </div>
+      }
+      @else {
+        <div >
+          
+        </div>
+      }
+
+
+      
+    @if(resumeAddMoreData?.certificate){
+      <div class="mb-3">
+        <h5 class="fw-bold">Certificate</h5>
+          <div class="ck-editor-list mt-1" [innerHTML]="resumeAddMoreData.certificate" >
+          </div>
+        </div>
+      }
+      @else {
+        <div >
+          
+        </div>
+      }
+
+
+      
+    @if(resumeAddMoreData?.languages?.length>0){
+      <div class="mb-3">
+        <h5 class="fw-bold">Languages</h5>
+          @for (languageData of resumeAddMoreData?.languages; track $index;let i=$index) {
+             <p>{{languageData?.language?.languageName}} | Proficiency : {{i==0 ? 'First Language' : languageData?.proficiency?.level }} </p>
+          }
+        </div>
+      }
+      @else {
+        <div >
+          
+        </div>
+      }
+
+
+      
+      @if(resumeAddMoreData?.links?.length>0){
+        @if(!resumeAddMoreData?.links[0]?.addHeader && resumeAddMoreData.links[0].link ){
+          <div class="mb-3">
+            <h5 class="fw-bold">Website and Social Links</h5>
+            <ul>
+              @for (linkData of resumeAddMoreData.links; track $index) {
+                @if(!linkData.addHeader){
+                  <li>{{linkData.link}}</li>
+                }
+              }
+            </ul>
+            </div>
+        }
+      
+      }
+      @else {
+      }
+
+
+      @if(resumeAddMoreData?.addMore?.length>0){
+
+        @for (addMoreData of resumeAddMoreData.addMore; track $index) {
+          <div class="mb-3">
+            <h5 class="fw-bold">{{addMoreData.sectionName}}</h5>
+            <div class="ck-editor-list mt-1" [innerHTML]="addMoreData.description" >
+
+            </div>  
+          </div>
+        }
+      }
+      @else {
+      }
+
+
+  </div> -->
+  
+<!-- Template 2 -->
+
+
+<div  class="custom-margin " >
+  <div class="row mb-2" >
+    <div class="col-md-6" >
+      <a class=" custom-link text-decoration-none" (click)="onChangeTemplate()" > <i class="bi bi-bag-fill"></i> Change Template</a>
+    </div>
+    <div class="col-md-6 text-end" >
+      <a class="custom-link text-decoration-none" (click)="onPreview()" > <i class="bi bi-eye-fill"></i> Preview</a>
+    </div>
+  </div>
+  <app-resume-view></app-resume-view>
+</div>
+

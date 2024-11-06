@@ -1,0 +1,49 @@
+
+@if(isVisible){
+    <!-- template-preview-modal.component.html -->
+<div class="modal fade" tabindex="-1" >
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Change Template</h5>
+          <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex">
+          <!-- Left Section: Template Selection -->
+          <div class="col-md-4 border-end pe-4">
+            <h6>Choose Color</h6>
+            <div class="d-flex gap-2 mb-3">
+              @for(color of colors;track color;){
+                  <div  class="rounded-circle color-circle"></div>
+              }
+            </div>
+            <h6>Choose Template</h6>
+            <div class="template-thumbnails d-flex flex-column gap-2 overflow-auto">
+                @for(template of templates;track template){
+                    <img  [src]="template.imageUrl" class="img-thumbnail" alt="Template Preview">
+                }
+            </div>
+          </div>
+          <!-- Right Section: Resume Preview -->
+          <div class="col-md-8 ps-4">
+            <h3>{{ resumeData.name }}</h3>
+            <p>{{ resumeData.contact }}</p>
+            <div class="resume-section">
+              <h6>Skills</h6>
+              <p>{{ resumeData.skills }}</p>
+            </div>
+            <div class="resume-section">
+              <h6>Experience</h6>
+              <p>{{ resumeData.experience }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="closeModal()">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+  

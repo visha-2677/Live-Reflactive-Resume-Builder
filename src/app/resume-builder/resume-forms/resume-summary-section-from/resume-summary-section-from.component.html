@@ -1,0 +1,38 @@
+<div class="custom-header">
+    <h3 class="text-bold fw-bold">Finish strong with a clear summary of 2-3 sentences that showcase your abilities</h3>
+    <p>Seal the deal with a powerful statement. Write your own, or select from the prompts below.</p>
+
+    <div class="editor-container bg-light p-2 rounded">
+        <ckeditor [editor]="Editor" [(ngModel)]="summaryInput" [config]="editorConfig" (ngModelChange)="updateResumeData()"  [ngModelOptions]="{standalone: true}"  ></ckeditor>
+      </div>
+
+        <div class="row mb-3 mt-3 ">
+
+                <div class="col-md-6">
+                    <div>
+                        <button class="btn  btn-lg rounded-pill custom-hover-1 px-5 text-bold fs-6 fw-bold"
+                          (click)="onBack()" type="button"
+                        >Back</button>
+                      </div>
+                </div>
+
+                <div class="col-md-6   ">
+                    <div class="d-flex justify-content-lg-end  ">
+                        <!-- <div class="">
+                            <button class="btn  btn-lg rounded-pill border-0 custom-hover-1 px-5 text-bold fs-6 fw-bold  text-decoration-underline"
+                            (click)="onAddClick()" type="button"
+                            >Add More Experience</button>
+                        </div> -->
+                        
+                        <div >
+                            <button class="btn  btn-lg rounded-pill custom-hover-2 px-5 text-bold fs-6 fw-bold"
+                            (click)="onContinue()" type="submit"
+                            >Continue</button>
+                          </div>
+                    </div>
+                    
+                </div>
+
+
+        </div>
+</div>

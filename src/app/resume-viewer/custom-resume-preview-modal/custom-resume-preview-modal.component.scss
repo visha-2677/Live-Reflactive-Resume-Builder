@@ -1,0 +1,63 @@
+/* resume-preview-modal.component.css */
+.modal-overlay {
+    position: fixed;
+    padding-top: 70px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* ensures it is above other content */
+    overflow: auto;
+  }
+  
+  .modal-content {
+    background-color: #f8f9fa; /* light background for modal */
+    width: 50%;
+    max-width: 800px;
+    // padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .modal-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .change-template-link {
+    color: #007bff;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+
+  .custom-link{
+    color: #2f5cf8;
+    font-weight: 600;
+  }
+
+  .resume-background{
+    background-color:#212d59 ;
+  }
+  .custom-icon{
+    color: #39ff90 ;
+  }

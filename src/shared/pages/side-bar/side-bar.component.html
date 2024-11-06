@@ -1,0 +1,28 @@
+
+    <div class="bg-blue p-4 sticky-top">
+        <div class="text-center pt-5 pb-5 ">
+              <i class="bi bi-file-earmark icon-color fs-1"></i>
+            </div>
+        <!-- Sidebar Navigation -->
+        <nav  class="d-flex  justify-content-center sidebar  ">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column ">
+                @for(step of steps;track step;let i=$index){
+                    <li >
+                        <a class="text-decoration-none d-flex flex-column align-items-center justify-content-center"
+                          [routerLink]="step.path" 
+                         >
+                            <div class="d-flex justify-content-center align-items-center rounded-circle bg-count text-black  border border-3 border-white "   routerLinkActive="active-link" style="width: 30px; height: 30px;">{{ i + 1 }}</div>
+                            @if(i!==steps.length-1){
+                                <div class="border border-2  " style="height: 30px; width: 0px;">
+                                </div>
+                            }
+                            
+                        </a>
+                    </li>
+                }
+            </ul>
+          </div>
+        </nav>
+      </div>
+      

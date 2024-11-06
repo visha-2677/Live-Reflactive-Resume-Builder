@@ -1,0 +1,153 @@
+<div class="custom-header position-relative ">
+    <h3 class="text-bold fw-bold">Let’s talk about your education</h3>
+    <p>Tell us about any colleges, vocational programs, or training courses you took. Even if you didn’t finish, it’s important to list them.</p>
+    <div class="custom-scroll" (scroll)="onScroll($event)"   >
+
+        <form [formGroup]="resumeReactiveForm" (ngSubmit)="onContinue()" >
+
+            <div formArrayName="education"  >
+                @for(education of educationArray.controls;track education;let i=$index){
+
+                    <div [id]="i"  [formGroupName]="i" class="mt-4 bg-light p-3">
+                        <div class="row mb-3 ">
+                            <div class="col-md-6">
+                                <p>{{i +1}}. Education</p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button class="btn rounded border border-black custom-hover-1" type="button" (click)="onDeleteEduction(i)" ><i class="bi bi-trash-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <mat-form-field class="w-100"  >
+                                    <mat-label>School Name</mat-label>
+                                    <input matInput #input formControlName="schoolName"  placeholder="School Name" />
+                                </mat-form-field >
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="w-100" >
+                                    <mat-label>School Location</mat-label>
+                                    <input matInput #input formControlName="schoolLocation"  placeholder="School Location"  />
+                                </mat-form-field >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                            <!-- <mat-form-field class="w-100" >
+                                <mat-label>Degree</mat-label>
+                                <input matInput #input  formControlName="degree" placeholder="Enter city"  />
+                            </mat-form-field > -->
+                                <mat-form-field class="w-100">
+                                    <mat-label>Degree</mat-label>
+                                    <mat-select formControlName="degree" placeholder="Degree" >
+                                        @for(degree of degreeData;track degree;let i=$index){
+                                            <mat-option [value]="degree.id">{{degree.degreeName}}</mat-option>
+                                        }
+                                        
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            
+                            @if(education.get('degree').value == 16){
+                                <div class="col-md-6"  >
+                                    <mat-form-field class="w-100" >
+                                        <mat-label>Enter your Degree</mat-label>
+                                        <input matInput #input  formControlName="enteredDegree" placeholder="Enter your Degree"  />
+                                    </mat-form-field >
+                                </div>
+                            }
+                            
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <mat-form-field class="w-100" >
+                                    <mat-label>Field of Study</mat-label>
+                                    <input matInput #input  formControlName="study" placeholder="Field of Study"  />
+                                </mat-form-field >
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <mat-form-field>
+                                            <mat-label> Graduation Date Month</mat-label>
+                                            <mat-select formControlName="month" placeholder="Month" >
+                                                @for(month of monthData;track month;let i=$index){
+                                                    <mat-option [value]="month.id">
+                                                        {{month.monthName}}
+                                                    </mat-option>
+                                                }
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field>
+                                            <mat-label> Graduation Date Year</mat-label>
+                                            <mat-select formControlName="year" placeholder="Year" >
+                                                @for(year of yearData;track year;let i=$index){
+                                                    <mat-option [value]="year">{{year}}</mat-option>
+                                                }
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div>
+                            <p>Add Description About Our Job Experience</p>
+                        </div>
+                        <div class="editor-container bg-light p-2 rounded ">
+                            <ckeditor [editor]="Editor" formControlName="description" [config]="editorConfig"></ckeditor>
+                        </div>
+                    </div>
+                    
+
+                }
+
+            </div>
+
+            
+
+
+            
+        </form>
+
+        
+    </div>
+    <div>
+        <a  #downBtn (click)="onScrollDown()" class="scroll-down-btn position-absolute top-60 start-50 translate-middle" ><i class="bi bi-chevron-double-down"></i></a>
+    </div>
+
+    <div class="row mb-3 mt-3 ">
+        <div class="col-md-6">
+            <div>
+                <button class="btn  btn-lg rounded-pill custom-hover-1 px-5 text-bold fs-6 fw-bold"
+                (click)="onBack()" type="button"
+                >Back</button>
+            </div>
+        </div>
+
+        <div class="col-md-6   ">
+            <div class="d-flex justify-content-lg-end  ">
+                <div class="">
+                    <button class="btn  btn-lg rounded-pill border-0 custom-hover-1 px-5 text-bold fs-6 fw-bold  text-decoration-underline"
+                    (click)="onAddClick()" type="button"
+                    >Add More Experience</button>
+                </div>
+                
+                <div >
+                    <button class="btn  btn-lg rounded-pill custom-hover-2 px-5 text-bold fs-6 fw-bold"
+                    (click)="onContinue()" type="submit"
+                    >Continue</button>
+                </div>
+            </div>
+            
+        </div>
+
+
+    </div>
+</div>

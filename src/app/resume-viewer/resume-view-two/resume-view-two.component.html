@@ -1,0 +1,631 @@
+<!-- <div  >
+    <section id="resume-download" class="resume border  border-1 border-black border-rounded rounded-2 p-3">
+      
+   
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="section-title">
+          <h2 >{{ resumeHeaderData?.firstName || 'Your First Name' }} {{ resumeHeaderData?.surname || 'Last Name' }}</h2>
+          <p>{{ resumeHeaderData?.phone || '1234567890' }} • <a href="mailto:vishal@gmail.com">{{ resumeHeaderData?.email || 'xyz@gmail.com' }}</a> • {{ resumeHeaderData?.city || 'Ahmedabad' }}, {{ resumeHeaderData?.country || 'India' }} {{ resumeHeaderData?.pinCode || '380061' }}
+            @if(resumeAddMoreData?.links?.length>0){
+                  @for (linkData of resumeAddMoreData.links; track $index) {
+                    @if(linkData.addHeader){
+                      • <a>  {{linkData.link}}</a>
+                    }
+                  }
+              }
+              @else {
+              }
+            </p>
+    
+            @if(resumeSummaryData){
+              <p [innerHTML]="resumeSummaryData" ></p>
+            }
+            @else {
+              <p >
+                Customer-focused Retail Sales professional with solid understanding of retail dynamics, marketing, and customer service. Offering 5 years of experience providing quality product recommendations and solutions to meet customer needs and exceed expectations. Demonstrated record of exceeding revenue targets by leveraging communication skills and sales expertise.
+              </p>
+            }
+    
+        </div>
+    
+        <div class="row">
+          <div class="col-lg-6">
+    
+    
+ 
+    
+            
+    
+            <h3 class="resume-title">Education</h3>
+    
+            @if(resumeEducationData){
+              @for(education of resumeEducationData;track education;let i=$index){
+    
+                <div class="resume-item">
+                  <h4> {{ education?.degree?.degreeName =='Enter Different Degree' ? education?.enteredDegree : education?.degree?.degreeName  ||'Master of Fine Arts & Graphic Design'}}  {{ '('+ education?.study + ')' }} </h4>
+                  <h5>{{education?.month?.monthName  || 'Oct'}} {{education?.year || '2021'}} </h5>
+                  <p><em> {{ education?.schoolName}} {{'(' + education?.schoolLocation + ')' || 'Rochester Institute of Technology, Rochester, NY '}}</em></p>
+                  <p [innerHTML]="education?.description" >
+                  </p>
+                </div>
+      
+              }
+            }
+            @else {
+              <div class="resume-item">
+                <h4>Master of Fine Arts &amp; Graphic Design</h4>
+                <h5>2015 - 2016</h5>
+                <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+                <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+              </div>
+              <div class="resume-item">
+                <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
+                <h5>2010 - 2014</h5>
+                <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+                <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
+              </div>
+            }
+    
+            <h3 class="resume-title">Professional Experience</h3>
+            @if(resumeExperienceData?.length>=1){
+              @for(experience of resumeExperienceData;track experience;let i=$index){
+                  <div class="resume-item pb-0 ">
+                    <h4>{{ experience?.jobTitle ||'Senior graphic design specialist'}} </h4>
+                    <h5>{{(experience?.startDate | date:'MMM, yyyy') || 'Oct 2021'}} -{{(experience?.endDate | date:'MMM, yyyy')  || 'Oct 2021'}} </h5>
+                    <p><em>{{ experience?.employer || 'Web Code Genie'}}, {{ experience?.city || 'Ahmedabad'}}, {{ experience?.country ||'India'}} </em></p>
+                    <p [innerHTML]="experience?.description" >
+                    </p>
+                  </div>
+              }
+            }
+            @else { 
+              <div class="resume-item">
+                <h4>Senior graphic design specialist</h4>
+                <h5>2019 - Present</h5>
+                <p><em>Experion, New York, NY </em></p>
+                <p>
+                </p><ul>
+                  <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
+                  <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
+                  <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
+                  <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+                </ul>
+                <p></p>
+              </div>
+            }
+    
+          </div>
+          <div class="col-lg-6">
+            
+            <h3 class="resume-title">Skills</h3>
+            <div class="resume-item pb-0">
+              @if(resumeSkillsData){
+                  <div [innerHTML]="resumeSkillsData" class="ck-editor-list-skills" >
+          
+                  </div>
+              }
+              @else {
+            <h3 class="resume-title">Skills</h3>
+            <div class="resume-item">
+                <ul>
+                  <li>Cash register operation</li>
+                  <li>POS system operation</li>
+                  <li>Sales expertise</li>
+                  <li>Teamwork</li>
+                </ul>
+            </div>
+              }
+            </div>
+    
+            @if(resumeAddMoreData?.activities){
+            <h3 class="resume-title">Activities And Honors</h3>
+            <div class="resume-item pb-0">
+                <div class="ck-editor-list" [innerHTML]="resumeAddMoreData.activities" >
+                </div>
+              </div>
+            }
+            @else {
+            <h3 class="resume-title">Activities And Honors</h3>
+            <div class="resume-item">
+              <ul>
+                <li>Cash register operation</li>
+                <li>POS system operation</li>
+                <li>Sales expertise</li>
+                <li>Teamwork</li>
+              </ul>
+            </div>
+            }
+    
+            @if(resumeAddMoreData?.awards){
+            <h3 class="resume-title">Awards And Accomplishments</h3>
+            <div class="resume-item pb-0">
+                <div  class="ck-editor-list-skills" [innerHTML]="resumeAddMoreData.awards" >
+                </div>
+              </div>
+            }
+            @else {
+            <h3 class="resume-title">Awards And Accomplishments</h3>
+            <div class="resume-item">
+              <ul>
+                <li>Cash register operation</li>
+                <li>POS system operation</li>
+                <li>Sales expertise</li>
+                <li>Teamwork</li>
+              </ul>
+            </div>
+            }
+    
+            @if(resumeAddMoreData?.certificate){
+              <h3 class="resume-title">Certificate</h3>
+              <div class="resume-item pb-0">
+                <div class="ck-editor-list mt-1" [innerHTML]="resumeAddMoreData.certificate" >
+                </div>
+                </div>
+              }
+              @else {
+              <h3 class="resume-title">Certificate</h3>
+              <div class="resume-item">
+                  <ul>
+                    <li>Cash register operation</li>
+                    <li>POS system operation</li>
+                    <li>Sales expertise</li>
+                    <li>Teamwork</li>
+                  </ul>
+              </div>
+              }
+    
+              @if(resumeAddMoreData?.languages?.length>0){
+                <h3 class="resume-title">Languages</h3>
+                <div class="resume-item pb-0">
+                  @for (languageData of resumeAddMoreData?.languages; track $index;let i=$index) {
+                    <p>{{languageData?.language?.languageName}} | Proficiency : {{i==0 ? 'First Language' : languageData?.proficiency?.level }} </p>
+                 }
+                  </div>
+                }
+                @else {
+                <h3 class="resume-title">Languages</h3>
+                <div class="resume-item">
+                      <ul>
+                        <li>Cash register operation</li>
+                        <li>POS system operation</li>
+                        <li>Sales expertise</li>
+                        <li>Teamwork</li>
+                      </ul>
+                </div>
+                }
+    
+                @if(resumeAddMoreData?.links?.length>0){
+                  <h3 class="resume-title">Website and Social Links</h3>
+                  <div class="resume-item pb-0">
+                      <ul>
+                        @for (linkData of resumeAddMoreData.links; track $index) {
+                          @if(!linkData.addHeader){
+                            <li>{{linkData.link}}</li>
+                          }
+                        }
+                      </ul>
+                  </div>
+                  }
+                  @else {
+                  <h3 class="resume-title">Website and Social Links</h3>
+                  <div class="resume-item">
+                        <ul>
+                          <li>Cash register operation</li>
+                          <li>POS system operation</li>
+                          <li>Sales expertise</li>
+                          <li>Teamwork</li>
+                        </ul>
+                  </div>
+                  }
+    
+                  @if(resumeAddMoreData?.links?.length>0){
+                    @for (addMoreData of resumeAddMoreData.addMore; track $index) {
+    
+                      <h3 class="resume-title">{{addMoreData.sectionName || 'Custom Section Name'}}</h3>
+                      <div class="resume-item pb-0">
+                        <div class="ck-editor-list mt-1" [innerHTML]="addMoreData.description" >
+      
+                        </div> 
+                      </div>
+                      }
+                    }
+                    @else {
+                    <h3 class="resume-title">Custom Section Name</h3>
+                    <div class="resume-item">
+                          <ul>
+                            <li>Cash register operation</li>
+                            <li>POS system operation</li>
+                            <li>Sales expertise</li>
+                            <li>Teamwork</li>
+                          </ul>
+                    </div>
+                    }
+    
+    
+          </div>
+        </div>
+    
+      </div>
+    </section>
+  </div> -->
+  
+
+  <div class="resume">
+    <div class="resume_left">
+      <div class="resume_content">
+
+        
+        <div class="resume_item resume_header">
+            <h2  >{{ resumeHeaderData?.firstName || 'Your First Name' }} {{ resumeHeaderData?.surname || 'Last Name' }}</h2>
+          <p>Mo No. {{ resumeHeaderData?.phone || '1234567890' }}</p>  
+           <p> <a class="text-white" href="mailto:vishal@gmail.com">{{ resumeHeaderData?.email || 'xyz@gmail.com' }}</a> </p>
+            <p> {{ resumeHeaderData?.city || 'Ahmedabad' }}, {{ resumeHeaderData?.country || 'India' }} {{ resumeHeaderData?.pinCode || '380061' }}</p>
+            @if(resumeAddMoreData?.links?.length>0){
+                  @for (linkData of resumeAddMoreData.links; track $index) {
+                    @if(linkData.addHeader){
+                      • <a>  {{linkData.link}}</a>
+                    }
+                  }
+              }
+              @else {
+              }
+          </div>
+        <!-- <div class="resume_item resume_info">
+          <div class="title">
+            <p class="bold">stephen colbert</p>
+            <p class="regular">Designer</p>
+          </div>
+          <ul>
+            <li>
+              <div class="icon">
+                <i class="fas fa-map-signs"></i>
+              </div>
+              <div class="data">
+                21 Street, Texas <br /> USA
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="data">
+                +324 4445678
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="data">
+                stephengmail.com
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fab fa-weebly"></i>
+              </div>
+              <div class="data">
+                www.stephen.com
+              </div>
+            </li>
+          </ul>
+        </div> -->
+        <div class="resume_item resume_skills">
+          <div class="title">
+            <p class="bold">Activities And Honors</p>
+          </div>
+
+          <div class="">
+            @if(resumeSkillsData){
+                <div [innerHTML]="resumeAddMoreData.activities" class="ck-editor-list-skills text-white" >
+        
+                </div>
+            }
+            @else {
+                <h3 class="resume-title">Activities And Honors</h3>
+                <div class="resume-item">
+                  <ul>
+                    <li>Cash register operation</li>
+                    <li>POS system operation</li>
+                    <li>Sales expertise</li>
+                    <li>Teamwork</li>
+                  </ul>
+                </div>
+            }
+          </div>
+
+        </div>
+
+
+        <div class="resume_item resume_skills">
+            <div class="title">
+              <p class="bold">Awards And Accomplishments</p>
+            </div>
+  
+            <div class="">
+              @if(resumeSkillsData){
+                  <div [innerHTML]="resumeAddMoreData.awards" class="ck-editor-list-skills text-white" >
+          
+                  </div>
+              }
+              @else {
+                  <h3 class="resume-title">Awards And Accomplishments</h3>
+                  <div class="resume-item">
+                    <ul>
+                      <li>Cash register operation</li>
+                      <li>POS system operation</li>
+                      <li>Sales expertise</li>
+                      <li>Teamwork</li>
+                    </ul>
+                  </div>
+              }
+            </div>
+  
+          </div>
+
+
+
+        <div class="resume_item resume_skills">
+            <div class="title">
+              <p class="bold">Certificate</p>
+            </div>
+  
+            <div class="">
+              @if(resumeSkillsData){
+                  <div [innerHTML]="resumeAddMoreData.certificate" class="ck-editor-list-skills text-white" >
+          
+                  </div>
+              }
+              @else {
+                  <h3 class="resume-title">Certificate</h3>
+                  <div class="resume-item">
+                    <ul>
+                      <li>Cash register operation</li>
+                      <li>POS system operation</li>
+                      <li>Sales expertise</li>
+                      <li>Teamwork</li>
+                    </ul>
+                  </div>
+              }
+            </div>
+  
+          </div>
+
+          @if(resumeAddMoreData?.languages?.length>0){
+        
+        <div class="resume_item resume_skills">
+            <div class="title">
+              <p class="bold">Languages</p>
+            </div>
+  
+            <div class="">
+              @if(resumeSkillsData){
+                @for (languageData of resumeAddMoreData?.languages; track $index;let i=$index) {
+                    <p>{{languageData?.language?.languageName}} | Proficiency : {{i==0 ? 'First Language' : languageData?.proficiency?.level }} </p>
+                 }
+              }
+            
+            </div>
+  
+          </div>
+        }
+        @else {
+            <h3 class="resume-title">Languages</h3>
+            <div class="resume-item">
+              <ul>
+                <li>Cash register operation</li>
+                <li>POS system operation</li>
+                <li>Sales expertise</li>
+                <li>Teamwork</li>
+              </ul>
+            </div>
+        }
+
+
+
+
+    
+    
+              @if(resumeAddMoreData?.languages?.length>0){
+                <h3 class="resume-title">Languages</h3>
+                <div class="resume-item pb-0">
+                  @for (languageData of resumeAddMoreData?.languages; track $index;let i=$index) {
+                    <p class="text-white" >{{languageData?.language?.languageName}} | Proficiency : {{i==0 ? 'First Language' : languageData?.proficiency?.level }} </p>
+                  }
+                  </div>
+                }
+                @else {
+                <h3 class="resume-title">Languages</h3>
+                <div class="resume-item">
+                      <ul>
+                        <li>Cash register operation</li>
+                        <li>POS system operation</li>
+                        <li>Sales expertise</li>
+                        <li>Teamwork</li>
+                      </ul>
+                </div>
+                }
+    
+                @if(resumeAddMoreData?.links?.length>0){
+                  <h3 class="resume-title">Website and Social Links</h3>
+                  <div class="resume-item pb-0">
+                      <ul>
+                        @for (linkData of resumeAddMoreData.links; track $index) {
+                          @if(!linkData.addHeader){
+                            <li>{{linkData.link}}</li>
+                          }
+                        }
+                      </ul>
+                  </div>
+                  }
+                  @else {
+                  <h3 class="resume-title">Website and Social Links</h3>
+                  <div class="resume-item">
+                        <ul>
+                          <li>Cash register operation</li>
+                          <li>POS system operation</li>
+                          <li>Sales expertise</li>
+                          <li>Teamwork</li>
+                        </ul>
+                  </div>
+                  }
+    
+                  @if(resumeAddMoreData?.links?.length>0){
+                    @for (addMoreData of resumeAddMoreData.addMore; track $index) {
+    
+                      <h3 class="resume-title">{{addMoreData.sectionName || 'Custom Section Name'}}</h3>
+                      <div class="resume-item pb-0">
+                        <div class="ck-editor-list mt-1" [innerHTML]="addMoreData.description" >
+      
+                        </div> 
+                      </div>
+                      }
+                    }
+                    @else {
+                    <h3 class="resume-title">Custom Section Name</h3>
+                    <div class="resume-item">
+                          <ul>
+                            <li>Cash register operation</li>
+                            <li>POS system operation</li>
+                            <li>Sales expertise</li>
+                            <li>Teamwork</li>
+                          </ul>
+                    </div>
+                    }
+    
+
+
+        <!-- <div class="resume_item resume_social">
+          <div class="title">
+            <p class="bold">Social</p>
+          </div>
+          <ul>
+            <li>
+              <div class="icon">
+                <i class="fab fa-facebook-square"></i>
+              </div>
+              <div class="data">
+                <p class="semi-bold">Facebook</p>
+                <p>Stephenfacebook</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fab fa-twitter-square"></i>
+              </div>
+              <div class="data">
+                <p class="semi-bold">Twitter</p>
+                <p>Stephentwitter</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div class="data">
+                <p class="semi-bold">Youtube</p>
+                <p>Stephenyoutube</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="data">
+                <p class="semi-bold">Linkedin</p>
+                <p>Stephenlinkedin</p>
+              </div>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+   </div>
+   <div class="resume_right">
+     <div class="resume_item resume_about">
+         <div class="title">
+            <p class="bold">Summary</p>
+          </div>
+         @if(resumeSummaryData){
+            <p [innerHTML]="resumeSummaryData" ></p>
+          }
+          @else {
+            <p >
+              Customer-focused Retail Sales professional with solid understanding of retail dynamics, marketing, and customer service. Offering 5 years of experience providing quality product recommendations and solutions to meet customer needs and exceed expectations. Demonstrated record of exceeding revenue targets by leveraging communication skills and sales expertise.
+            </p>
+          }
+     </div>
+     <div class="resume_item resume_skills">
+        <div class="title">
+             <p class="bold">Skill's</p>
+           </div>
+           <div class="">
+             @if(resumeSkillsData){
+                 <div [innerHTML]="resumeSkillsData" class="ck-editor-list-skills " >
+         
+                 </div>
+             }
+             @else {
+             <h3 class="">Skills</h3>
+             <div class="">
+                 <ul>
+                     <li>Cash register operation</li>
+                     <li>POS system operation</li>
+                     <li>Sales expertise</li>
+                     <li>Teamwork</li>
+                 </ul>
+             </div>
+             }
+         
+           </div>
+      </div>
+     <div class="resume_item resume_work">
+         <div class="title">
+            <p class="bold">Work Experience</p>
+          </div>
+         <ul>
+             <li>
+                 <div class="date">2013 - 2015</div> 
+                 <div class="info">
+                      <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                 </div>
+             </li>
+             <li>
+               <div class="date">2015 - 2017</div>
+               <div class="info">
+                      <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                 </div>
+             </li>
+             <li>
+               <div class="date">2017 - Present</div>
+               <div class="info">
+                      <p class="semi-bold">Lorem ipsum dolor sit amet.</p> 
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                 </div>
+             </li>
+         </ul>
+     </div>
+     <div class="resume_item resume_education">
+       <div class="title">
+            <p class="bold">Education</p>
+          </div>
+       <ul>
+             <li>
+                 <div class="date">2010 - 2013</div> 
+                 <div class="info">
+                      <p class="semi-bold">Web Designing (Texas University)</p> 
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                 </div>
+             </li>
+             <li>
+               <div class="date">2000 - 2010</div>
+               <div class="info">
+                      <p class="semi-bold">Texas International School</p> 
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                 </div>
+             </li>
+         </ul>
+     </div>
+   </div>
+ </div>

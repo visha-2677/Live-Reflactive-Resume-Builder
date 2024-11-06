@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>
+    {{dialogTitle}}</h2>
+<mat-dialog-content>
+    {{content}}
+</mat-dialog-content>
+<mat-dialog-actions>
+
+  <button class="btn  btn-lg rounded-pill border border-0   custom-hover-1 px-5 text-bold fs-6 fw-bold"
+                (click)="onNoClick()"
+                >{{btn2Content}}</button>
+                
+  <button class="btn  btn-lg rounded-pill custom-hover-2 px-5 text-bold fs-6 fw-bold"
+                (click)="onAddClick()"
+                >{{btn1Content}}</button>
+   
+</mat-dialog-actions>

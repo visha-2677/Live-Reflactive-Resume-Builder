@@ -1,0 +1,22 @@
+@if(isVisible){
+    <!-- resume-preview-modal.component.html -->
+<div class="modal-overlay" >
+    <div class="modal-content">
+      <button class="close-button  " (click)="closeModal()"><i class="bi bi-x-lg"></i></button>
+      
+      <h3 class="text-bold fw-bold mt-4 text-center">Resume Preview</h3>
+      <div class="row p-5 pb-2 pt-2" >
+          <div class="col-md-6" >
+              <a class=" custom-link text-decoration-none"><i class="bi bi-bag-fill"></i> Change template</a>
+            </div>
+            <div class="col-md-6 text-end " >
+                <a class="custom-link text-decoration-none" (click)="onDownload()"  ><i class="bi bi-file-earmark-arrow-down-fill"></i> Download </a>
+            </div>
+        </div>
+        <div class="resume-background p-5" >
+            <app-resume-view></app-resume-view>
+        </div>
+    </div>
+  </div>
+  
+}

@@ -1,0 +1,26 @@
+.custom-header{
+    margin-top: 95px;
+    margin-left: 70px;
+    margin-right: 30px;
+}
+.custom-hover-1 {
+    // background-color: #d0d8f0; /* Light blue color for the button */
+    border-color: #000; /* Black border */
+  }
+  
+  .custom-hover-1:hover {
+    background-color: #adb7db; /* Darker color on hover */
+    color: #000; /* Ensure the text color remains black on hover */
+  }
+    
+  
+  .custom-hover-2{
+    background-color: #212d59;
+    color: white;
+    border-color: #212d59; /* Black border */
+  }
+  
+  .custom-hover-2:hover{
+    background-color:#1a254f ;
+    color: white;
+  }
