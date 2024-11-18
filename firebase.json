@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/firebase-host",
+    "public": "dist/resume-builder-demo",
     "ignore": [
       "firebase.json",
       "**/.*",
